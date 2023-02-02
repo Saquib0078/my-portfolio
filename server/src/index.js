@@ -12,10 +12,7 @@ app.use(cors({ origin:'https://saquib007.netlify.app/'}));  //'http://localhost:
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-
-
-
-
+//----
 
 mongoose.connect("mongodb+srv://saquib007:Jdo1pCEGwZpOgtdD@cluster0.rvsi5lf.mongodb.net/test", {
     useNewUrlParser: true
