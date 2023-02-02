@@ -1,0 +1,48 @@
+.PortfolioContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;    
+    height: 90%;
+
+
+
+  }
+
+  #title{
+    color: aliceblue;
+    margin-right:200px;
+    font-size: larger;
+
+  }
+
+
+  
+  
+  .project-box {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .project-box:hover {
+    transform: scale(1.05);
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+    rgba(178, 176, 176, 0.72) 0px 30px 22px -10px;
+    border-color: rgba(249, 249, 249, 0.8);
+  }
+  
+  .project-box img {
+    width: 70%;
+  
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .project-box p {
+    font-size: 20px;
+    margin: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  
