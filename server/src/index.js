@@ -3,9 +3,13 @@ const mongoose = require('mongoose')
 const app = express()
 const userModel=require('./models/userModel')
 const cors=require('cors')
+const render=require('render')
+app.use(bodyParser.json());
+
 app.use(cors({ origin:'https://saquib007.netlify.app/'}));  //'http://localhost:3001' || 'http://localhost:3002'||
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
 
 
 
