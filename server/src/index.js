@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const app = express()
 const userModel=require('./models/userModel')
 const cors=require('cors')
-const render=require('render')
 app.use(bodyParser.json());
 
 app.use(cors({ origin:'https://saquib007.netlify.app/'}));  //'http://localhost:3001' || 'http://localhost:3002'||
@@ -32,6 +31,10 @@ return res.status(201).send({msg:"success",data:newuser})
 
 }    
       });
+
+      app.get('/test',async(req,res)=>{
+        return res.status(200).send('fine')
+      })
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express app running on Port " + (process.env.PORT || 3000))
