@@ -38,6 +38,8 @@ return res.status(201).send({msg:"success",data:newuser})
     //   const movies = mongoose.model('movies', MovieSchema);
 
       app.get('/movie',async(req,res)=>{
+        res.setHeader('Access-Control-Allow-Origin','*')
+
 try {
     movieModel.find({}, (err, devices) => {
         if (err) {
