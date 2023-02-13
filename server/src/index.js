@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express()
 const userModel=require('./models/userModel')
+const movieModel=require('./models/movie')
 const cors=require('cors')
 app.use(bodyParser.json());
 
@@ -34,10 +35,23 @@ return res.status(201).send({msg:"success",data:newuser})
 }    
       });
 
-      app.get('/test',async(req,res)=>{
-        res.setHeader('Access-Control-Allow-Origin','*')
+    //   const movies = mongoose.model('movies', MovieSchema);
 
-        return res.status(200).send('fine')
+      app.get('/movie',async(req,res)=>{
+try {
+    movieModel.find({}, (err, devices) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(devices);
+        }
+      });
+} catch (error) {
+    return res.status(500).send({status:false,msg:error.message})
+
+}
+
+
       })
 
 app.listen(process.env.PORT || 3000, function(){
