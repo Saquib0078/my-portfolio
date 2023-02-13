@@ -41,9 +41,9 @@ return res.status(201).send({msg:"success",data:newuser})
 try {
     movieModel.find({}, (err, devices) => {
         if (err) {
-          res.send(err);
+          res.status(400).send({status:false,msg:err});
         } else {
-          res.send(devices);
+          res.status(200).send({status:true,data:devices});
         }
       });
 } catch (error) {
