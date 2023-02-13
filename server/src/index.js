@@ -8,7 +8,7 @@ const movieModel=require('./models/movie')
 const cors=require('cors')
 app.use(bodyParser.json());
 
-app.use(cors({ origin:'https://saquib007.netlify.app'}));  //'http://localhost:3001' || 'http://localhost:3002'||
+app.use(cors({ origin:'https://saquib007.netlify.app'||'https://mydisneyapp.netlify.app/'}));  //'http://localhost:3001' || 'http://localhost:3002'||
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
