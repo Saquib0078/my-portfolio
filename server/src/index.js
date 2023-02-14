@@ -8,7 +8,10 @@ const movieModel=require('./models/movie')
 const cors=require('cors')
 app.use(bodyParser.json());
 
-app.use(cors({ origin:'https://saquib007.netlify.app'||'https://mydisneyapp.netlify.app/'}));  //'http://localhost:3001' || 'http://localhost:3002'||
+// app.use(cors({ origin:['https://saquib007.netlify.app'||'http://localhost:3001']}));  //'http://localhost:3001' || 'http://localhost:3002'||
+
+app.use(cors({ origin: '*' }));
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -35,9 +38,8 @@ return res.status(201).send({msg:"success",data:newuser})
 }    
       });
 
-    //   const movies = mongoose.model('movies', MovieSchema);
 
-      app.get('/movie',async(req,res)=>{
+      app.get('/movie/',async(req,res)=>{
         res.setHeader('Access-Control-Allow-Origin','*')
 
 try {
@@ -52,8 +54,20 @@ try {
     return res.status(500).send({status:false,msg:error.message})
 
 }
+      })
 
+      app.get('/movie/:id',async(req,res)=>{
+        res.setHeader('Access-Control-Allow-Origin','*')
+       let data=req.params.id
+try {
+   const movie=await movieModel.findById(data)
+   if(!movie)  res.status(400).send({status:false,msg:err});
+   res.status(200).send({status:true,data:movie});
 
+} catch (error) {
+    return res.status(500).send({status:false,msg:error.message})
+
+}
       })
 
 app.listen(process.env.PORT || 3000, function(){
